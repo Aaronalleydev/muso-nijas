@@ -4,9 +4,14 @@
       <img src="@/assets/AlleyLogoClear.png" alt="">
       <h1><router-link :to="{ name: 'Home'}">Muso Ninja's</router-link></h1>
       <div class="links">
-        <button @click="handleClick" v-if="user">Logout</button>
-        <router-link class="btn" :to="{ name: 'Signup'}" v-if="!user">Signup</router-link>
-        <router-link class="btn" :to="{ name: 'Login'}" v-if="!user">Login</router-link>
+        <div v-if="user">
+          <router-link :to="{ name: 'CreatePlaylist'}">Create Playlist</router-link>
+          <button @click="handleClick">Logout</button>
+        </div>
+        <div v-else>
+          <router-link class="btn" :to="{ name: 'Signup'}">Signup</router-link>
+        <router-link class="btn" :to="{ name: 'Login'}">Login</router-link>
+        </div>
       </div>
     </nav>
   </div>
